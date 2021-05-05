@@ -21,7 +21,7 @@ namespace Common.Logging
 
         public ILogger CreateLogger(string categoryname)
         {
-            return new SyslogLogger(categoryname, _host, _port, _filter);
+            return new SyslogLogger(categoryname, (string)this._host, (int)this._port, (Func<string, LogLevel, bool>)this._filter);
         }
 
         public void Dispose()
